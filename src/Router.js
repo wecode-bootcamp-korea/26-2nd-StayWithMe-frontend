@@ -9,18 +9,16 @@ import PaymentPage from './pages/PaymentPage/PaymentPage';
 
 const Router = () => {
   return (
-    <>
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route exact path="/" element={<Main />} />
-          <Route exact path="/infoList" element={<InfoList />} />
-          <Route exact path="/detailPage" element={<DetailPage />} />
-          <Route exact path="/paymentPage" element={<PaymentPage />} />
-          <Route exact path="/LoginPage" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/infoList" element={<InfoList />} />
+        <Route path="/detailPage" element={<DetailPage />} />
+        <Route path="/paymentPage" element={<PaymentPage />} />
+        <Route path="/LoginPage" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
