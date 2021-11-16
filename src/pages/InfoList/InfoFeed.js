@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-const InfoFeed = ({ info }) => {
+const InfoFeed = ({ info, dateInfo }) => {
+  const [stateId, setStateId] = useState('');
+  const { check_in, check_out } = dateInfo;
+  const navigate = useNavigate();
+
+  const goToDetailPage = event => {
+    navigate(`/detailPage?room_id=${stateId}`, {
+      state: { check_in, check_out },
+    });
+  };
+
+  useEffect(() => {
+    setStateId(info.id);
+  }, [info]);
+
   return (
-    <Container>
+    <Container onClick={goToDetailPage}>
       <InfoFeedInner>
         <InfoLeftContainer>
           <InfoName>
@@ -12,11 +27,15 @@ const InfoFeed = ({ info }) => {
           </InfoName>
           <InfoMainContainer>
             <InfoAddressContainer>
-              <InfoLocal>{info.address}</InfoLocal>
+              <InfoLocal>
+                {info.address.split(' ').slice(0, 2).join(' / ')}
+              </InfoLocal>
               <br />
               기준 {info.min_people}명 (최대 {info.max_people})
               <br />
-              {`₩${info.min_price.toLocaleString()} ~ ₩${info.max_price.toLocaleString()}`}
+              {`₩${Math.floor(info.min_price).toLocaleString(
+                'ko-KR'
+              )} ~ ₩${Math.floor(info.max_price).toLocaleString('ko-KR')}`}
             </InfoAddressContainer>
             <BookButton>예약하기</BookButton>
           </InfoMainContainer>

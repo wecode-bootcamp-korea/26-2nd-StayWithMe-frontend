@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import SubtitleTemplate from './SubtitleTemplate';
 import SortBoxTemplate from './SortBox/SortBoxTemplate';
@@ -8,6 +8,16 @@ import InfoListTemplate from './InfoListTemplate';
 import InfoListForm from './InfoListForm';
 
 const InfoListPage = () => {
+  const [defaultPage, setDefaultPage] = useState('');
+
+  // const resetPage = useCallback(page => {
+  //   setDefaultPage(page);
+  // }, []);
+
+  const resetPage = page => {
+    setDefaultPage(page);
+  };
+
   return (
     <Container>
       <SubtitleTemplate />
@@ -15,8 +25,8 @@ const InfoListPage = () => {
         <SortBoxFilterForm />
       </SortBoxTemplate>
       <OrderCategory />
-      <InfoListTemplate>
-        <InfoListForm />
+      <InfoListTemplate defaultPage={defaultPage}>
+        <InfoListForm resetPage={resetPage} />
       </InfoListTemplate>
     </Container>
   );
