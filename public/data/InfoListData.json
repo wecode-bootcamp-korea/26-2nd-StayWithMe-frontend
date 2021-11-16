@@ -1,0 +1,72 @@
+{
+  "result": {
+    "info_list": [
+      {
+        "id": 1,
+        "name": "숲과 생활",
+        "category": "민박",
+        "address": "전라/전주시",
+        "min_people": 2,
+        "max_people": 3,
+        "min_price": 187000,
+        "max_price": 264000,
+        "image_url": "https://images.stayfolio.com/system/pictures/images/000/058/604/small/632cee6dc35346df1f2c6b5d586ed5e73ec7c8a7.jpg?1606199154"
+      },
+      {
+        "id": 2,
+        "name": "아담한옥",
+        "category": "한옥",
+        "address": "전라/전주시",
+        "min_people": 2,
+        "max_people": 3,
+        "min_price": 187000,
+        "max_price": 264000,
+        "image_url": "https://images.stayfolio.com/system/pictures/images/000/023/153/small/d801db34d37a7a4b462173bd34485ec934b3d414.jpg?1510118554"
+      },
+      {
+        "id": 3,
+        "name": "씨마크 호텔",
+        "category": "호텔",
+        "address": "서울/종로시",
+        "min_people": 2,
+        "max_people": 3,
+        "min_price": 187000,
+        "max_price": 264000,
+        "image_url": "https://images.stayfolio.com/system/pictures/images/000/060/333/small/aa9f04d34ddd7a3915bff433b524d9a396b76042.jpg?1608263550"
+      },
+      {
+        "id": 4,
+        "name": "어연스테이",
+        "category": "렌탈하우스",
+        "address": "전라/완주군",
+        "min_people": 2,
+        "max_people": 3,
+        "min_price": 187000,
+        "max_price": 264000,
+        "image_url": "https://images.stayfolio.com/system/pictures/images/000/089/089/small/e34802623aa846f2e0b982ee109d73d113941b71.jpg?1629363255"
+      },
+      {
+        "id": 5,
+        "name": "포도호텔",
+        "category": "호텧",
+        "address": "제주/서귀포시",
+        "min_people": 2,
+        "max_people": 3,
+        "min_price": 187000,
+        "max_price": 264000,
+        "image_url": "https://images.stayfolio.com/system/pictures/images/000/052/201/small/135ac4ab4c1d64f175b848ca4d48031457231504.jpg?1597021085"
+      },
+      {
+        "id": 6,
+        "name": "라이즈 오토그래프 컬렉션",
+        "category": "호텔",
+        "address": "서울/마포구",
+        "min_people": 2,
+        "max_people": 3,
+        "min_price": 187000,
+        "max_price": 264000,
+        "image_url": "https://images.stayfolio.com/system/pictures/images/000/100/207/small/14eb5ebea73bd7024315676d018ea7674e02c52f.jpg?1636599693"
+      }
+    ]
+  }
+}
