@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import PagingContainer from './PagingContainer';
 
-const InfoListTemplate = ({ children }) => {
+const InfoListTemplate = ({ defaultPage, children }) => {
   return (
     <Container>
       <InfoListTemplateInner>{children}</InfoListTemplateInner>
-      <PagingContainer />
+      <PagingContainer resetPage={defaultPage} />
     </Container>
   );
 };

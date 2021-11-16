@@ -3,12 +3,14 @@ import styled, { css } from 'styled-components';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { connectQuery } from './queryModule';
 
-const PagingContainer = () => {
+const PagingContainer = ({ resetPage }) => {
   const [currentPage, setCurrentPage] = useState('1');
   const navigate = useNavigate();
   const queries = useLocation().search;
 
   const checkActive = page => {
+    if (resetPage !== '' && resetPage === '1') return page === resetPage;
+
     return page === currentPage;
   };
 
