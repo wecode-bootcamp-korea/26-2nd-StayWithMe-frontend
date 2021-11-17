@@ -8,6 +8,26 @@ const loginWithKakao = () => {
   });
 };
 
+const Login = () => {
+  return (
+    <ContainerBox>
+      <LoginContainer>
+        <FrontText>LOGIN</FrontText>
+        <LoginText>로그인</LoginText>
+        <Line />
+        <LoginText>SNS 계정으로 시작하기</LoginText>
+        <a id="custom-login-btn" onClick={loginWithKakao}>
+          <img
+            src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+            width="222"
+            alt="카카오 로그인 버튼"
+          />
+        </a>
+      </LoginContainer>
+    </ContainerBox>
+  );
+};
+
 const ContainerBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,8 +41,7 @@ const LoginContainer = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid #333;
-  width: 300px;
-  height: 400px;
+  padding: 80px 30px;
 `;
 
 const FrontText = styled.div`
@@ -35,34 +54,9 @@ const LoginText = styled.div`
   padding: 10px;
 `;
 
-const InputContainer = styled.div`
-  list-style: none;
-  line-height: 20px;
-`;
-
 const Line = styled.div`
   width: 200px;
   height: 1px;
   border-bottom: 1px solid #333;
 `;
-
-const Login = () => {
-  return (
-    <ContainerBox>
-      <LoginContainer>
-        <FrontText>LOGIN</FrontText>
-        <LoginText>로그인</LoginText>
-        <Line />
-        <LoginText>SNS 계정으로 시작하기</LoginText>
-        <a id="custom-login-btn" onClick={loginWithKakao}>
-          <img
-            src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
-            width="222"
-          />
-        </a>
-      </LoginContainer>
-    </ContainerBox>
-  );
-};
-
 export default Login;
