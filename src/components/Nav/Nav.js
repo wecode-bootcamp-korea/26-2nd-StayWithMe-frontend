@@ -7,25 +7,27 @@ import { AiOutlineCalendar } from 'react-icons/ai';
 const Nav = () => {
   return (
     <Header>
-      <Link to="/main">
-        <Logo src="./images/logo.jpg" />
-      </Link>
-      <Wherebutton>
-        <BiMap />
-        <span>어디로 떠날까요?</span>
-      </Wherebutton>
-      <Whenbutton>
-        <AiOutlineCalendar />
-        <span>언제 떠날까요?</span>
-      </Whenbutton>
+      <Inner>
+        <Link to="/main">
+          <Logo src="./images/logo.jpg" />
+        </Link>
+        <Wherebutton>
+          <BiMap />
+          <span>어디로 떠날까요?</span>
+        </Wherebutton>
+        <Whenbutton>
+          <AiOutlineCalendar />
+          <span>언제 떠날까요?</span>
+        </Whenbutton>
 
-      <Box>
-        <Menu to="/infoList">FIND STAY</Menu>
-        <Menu to="..">PROMOTION</Menu>
-        <Menu to="..">JOURNAL</Menu>
-        <Menu to="..">PRE-ORDER</Menu>
-      </Box>
-      <Loginbox to="/login">Login</Loginbox>
+        <Box>
+          <Menu to="/infoList">FIND STAY</Menu>
+          <Menu to="..">PROMOTION</Menu>
+          <Menu to="..">JOURNAL</Menu>
+          <Menu to="..">PRE-ORDER</Menu>
+        </Box>
+        <Loginbox to="/login">Login</Loginbox>
+      </Inner>
     </Header>
   );
 };
@@ -34,12 +36,18 @@ export default Nav;
 
 const Header = styled.div`
   background-color: white;
-  height: 75px;
-  padding: 0 20px;
   border-bottom: solid 2px #e8e8e8;
-  display: flex;
-  align-items: center;
 `;
+
+const Inner = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80%;
+  margin: 0 auto;
+`;
+
 const Logo = styled.img`
   width: 120px;
   height: 60px;
@@ -47,7 +55,7 @@ const Logo = styled.img`
 `;
 
 const Wherebutton = styled.span`
-  margin-left: 600px;
+  margin-left: 20%;
   padding-right: 30px;
   span {
     margin-left: 10px;
@@ -61,10 +69,9 @@ const Whenbutton = styled.span`
   }
 `;
 const Box = styled.a`
-  width: 350px;
+  margin-left: 10%;
   display: flex;
   justify-content: space-between;
-  margin-left: 300px;
   text-decoration: none;
 `;
 
@@ -78,6 +85,12 @@ const Loginbox = styled(Link)`
 `;
 
 const Menu = styled(Link)`
+  padding: 10px;
   text-decoration: none;
   color: black;
+  :hover {
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-thickness: 2px;
+  }
 `;
