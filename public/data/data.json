@@ -1,0 +1,73 @@
+{
+  "result": {
+    "id": 1,
+    "name": "숲과생활",
+    "introduction": "식물이 주는 작은 위로",
+    "address": "전주시 완산구 전주객사1길 95-18 ",
+    "longitude": "0E-10",
+    "latitude": "0E-10",
+    "phone_number": "0504-0904-2449",
+    "email": "kangelk2@google.com",
+    "images": [
+      "https://cdn.pixabay.com/photo/2018/02/24/17/17/window-3178666__340.jpg",
+      "https://cdn.pixabay.com/photo/2021/10/06/15/05/bedroom-6686061__340.jpg",
+      "https://cdn.pixabay.com/photo/2017/04/28/22/16/room-2269594__340.jpg"
+    ],
+    "rooms": [
+      {
+        "id": 1,
+        "name": "숲",
+        "max_people": 2,
+        "min_people": 1,
+        "price": "207000.00",
+        "number_of_bed": 1,
+        "options": [
+          {
+            "name": "기본형"
+          }
+        ],
+        "room_image": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2018/02/24/17/17/window-3178666__340.jpg"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "생활",
+        "max_people": 2,
+        "min_people": 1,
+        "price": "207000.00",
+        "number_of_bed": 1,
+        "options": [
+          {
+            "name": "복층형"
+          }
+        ],
+        "room_image": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2021/10/06/15/05/bedroom-6686061__340.jpg"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "나무",
+        "max_people": 3,
+        "min_people": 2,
+        "price": "250000.00",
+        "number_of_bed": 2,
+        "options": [
+          {
+            "name": "오픈형"
+          }
+        ],
+        "room_image": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2017/04/28/22/16/room-2269594__340.jpg"
+          }
+        ]
+      }
+    ]
+  }
+}
