@@ -20,7 +20,7 @@ const Login = () => {
           <img
             src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
             width="222"
-            alt="카카오 로그인 버튼"
+            alt="카카오 로그인"
           />
         </a>
       </LoginContainer>
