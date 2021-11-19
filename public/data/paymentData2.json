@@ -1,0 +1,17 @@
+{
+  "booked_rooms": [
+    {
+      "user_id": 1,
+      "accomodation_id": 1,
+      "room_id": 1,
+      "start_date": "2021-11-11",
+      "end_date": "2021-11-14",
+      "price": 120321.0,
+      "number_of_adult": 2,
+      "payment_type_id": 1,
+      "user_request": "dfsdfsdf",
+      "name": "이찬규",
+      "phone_number": "01022222222"
+    }
+  ]
+}
