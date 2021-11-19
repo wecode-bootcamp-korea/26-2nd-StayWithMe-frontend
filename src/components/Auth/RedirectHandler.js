@@ -34,7 +34,7 @@ const Redirect = () => {
         let accessToken = result.access_token;
 
         accessToken &&
-          fetch('http://10.58.4.242:8000/users/signin', {
+          fetch('http://10.58.0.64:8000/users/signin', {
             method: 'POST',
             headers: {
               Authorization: accessToken,
