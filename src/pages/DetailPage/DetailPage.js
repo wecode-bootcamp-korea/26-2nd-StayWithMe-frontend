@@ -1,31 +1,45 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
+
 import Slide from './Slide';
 import BottomSlider from './BottomSlider';
 import RoomInfo from './RoomInfo';
 import ShowDateBox from './ShowDateBox';
 import { AiOutlineSwapLeft } from 'react-icons/ai';
+import { API } from '../../config';
 
 const DetailPage = () => {
   const [room, setRoom] = useState({});
   const location = useLocation();
-  const params = new URLSearchParams(location.search.substring(1));
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const { check_in, check_out } = location.state && location.state;
+  const { check_in, check_out } = location.state ?? {};
 
+  // const params = new URLSearchParams(location.search.substring(1));
   useEffect(() => {
-    fetch('/data/data.json')
+    const roomId = searchParams.get('room_id');
+
+    fetch(
+      `${API.infoList}/${roomId}?start_date=${check_in}&end_date=${check_out}`
+    )
       .then(res => res.json())
-      .then(data => {
-        setRoom(data.result);
+      .then(res => {
+        console.log(res);
+        setRoom(res.result);
       });
   }, []);
-  // console.log(room);
+
+  // room_name (아담독채)
+  // 날짜 (start_date, end_date)
+  // price_number
+  // 룸 옵션 (기본형)
+  //
+
   return (
     <Container>
       <Head>
-        <ReturnBtn to="./main">
+        <ReturnBtn to="/infoList">
           <AiOutlineSwapLeft className="backIcon" /> 돌아가기
         </ReturnBtn>
       </Head>
@@ -33,9 +47,18 @@ const DetailPage = () => {
         <Slide room={room} />
         <RoomInfo room={room} />
       </ImgBox>
-      <ShowDateBox check_in={check_in} check_out={check_out} />
+      <ShowDate>
+        <ShowDateBox check_in={check_in} check_out={check_out} />
+      </ShowDate>
       <DetailRoom>
-        {room.rooms && <BottomSlider detail={room.rooms} />}
+        {room.rooms && (
+          <BottomSlider
+            room={room}
+            detail={room.rooms}
+            check_in={check_in}
+            check_out={check_out}
+          />
+        )}
       </DetailRoom>
     </Container>
   );
@@ -74,7 +97,10 @@ const ImgBox = styled.div`
   position: relative;
   display: flex;
 `;
+const ShowDate = styled.div`
+  margin-top: 80px;
+`;
 
 const DetailRoom = styled.div`
-  margin-top: 400px;
+  margin-top: 150px;
 `;

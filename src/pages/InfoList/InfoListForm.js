@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import InfoFeed from './InfoFeed';
 import { exportQueries, exportPageNum, exportDates } from './queryModule';
-import { API } from '../../ config';
+import { API } from '../../config';
 
 const InfoListForm = ({ resetPage }) => {
   const [infoList, setInfoList] = useState([]);

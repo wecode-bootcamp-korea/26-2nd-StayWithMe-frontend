@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <Header>
       <Inner>
-        <Link to="/main">
+        <Link to="/">
           <Logo src="./images/logo.jpg" />
         </Link>
         <Wherebutton>
@@ -26,7 +26,7 @@ const Nav = () => {
           <Menu to="..">JOURNAL</Menu>
           <Menu to="..">PRE-ORDER</Menu>
         </Box>
-        <Loginbox to="/login">Login</Loginbox>
+        <Loginbox to="/loginPage">Login</Loginbox>
       </Inner>
     </Header>
   );

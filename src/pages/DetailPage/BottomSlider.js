@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Slider from 'react-slick';
-function BottomSlider({ detail }) {
+
+function BottomSlider({ room, detail, check_in, check_out }) {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
@@ -17,15 +18,19 @@ function BottomSlider({ detail }) {
     <Container>
       <DetailTitle>
         <Title>ROOM</Title>
-        <SwipperButton />
+        {/* <SwipperButton /> */}
       </DetailTitle>
       <SliderContainer>
         <Slider {...settings}>
-          {/* {detail.map((_, idx) => {
-          return <div key={idx}>{idx}</div>;
-        })} */}
           {detail.map((info, idx) => (
-            <Slide key={info.id} info={info} index={idx + 1} />
+            <Slide
+              key={info.id}
+              room={room}
+              info={info}
+              check_in={check_in}
+              check_out={check_out}
+              index={idx + 1}
+            />
           ))}
         </Slider>
       </SliderContainer>
@@ -42,23 +47,24 @@ function NextButton(props) {
 }
 
 const Container = styled.div`
-  margin-top: 200px;
   position: relative;
   color: #fff;
 `;
 
 const SliderContainer = styled.div`
-  width: 80vw;
-  margin: 0 auto;
+  width: 70vw;
+  margin-top: 100px;
   position: absolute;
   top: 0;
-  left: 300px;
+  left: 500px;
 
   .slick-prev {
-    left: -100px;
+    top: 500px;
+    left: -410px;
   }
   .slick-next {
-    right: -100px;
+    top: 500px;
+    left: -290px;
   }
 `;
 
@@ -75,7 +81,7 @@ const Title = styled.div`
   color: black;
   font-size: 60px;
   position: absolute;
-  margin: 200px 0 0 60px;
+  margin: 180px 0 0 80px;
   &:after {
     content: '';
     display: block;
@@ -84,16 +90,10 @@ const Title = styled.div`
     margin: 20px 0px;
   }
 `;
-const SwipperButton = styled.div`
-  margin-top: 400px;
-  position: absolute;
-  margin: 500px 0 0 60px;
-`;
 
 const PrevBtn = styled.img`
   width: 80px;
   height: 80px;
-  margin: 0 20px 0 10px;
 `;
 
 const NextBtn = styled.img`
@@ -102,11 +102,10 @@ const NextBtn = styled.img`
 `;
 
 const RoomSlide = styled.div`
-  width: 700px;
-  height: 700px;
+  width: 650px;
   background-image: url(${props => props.url && props.url});
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 `;
 const RoomImg = styled.div`
@@ -115,30 +114,33 @@ const RoomImg = styled.div`
   position: relative;
 `;
 const RoomDetailInfo = styled.div`
-  width: 700px;
+  width: 650px;
   height: 140px;
   position: absolute;
-  bottom: 67px;
+  bottom: 0px;
   background-color: black;
   opacity: 0.7;
 `;
 const TopLine = styled.div`
-  width: 460px;
   height: 70px;
   display: flex;
   justify-content: space-between;
 `;
 const RoomName = styled.div`
   font-size: 30px;
+  padding: 20px;
 `;
 const RoomPrice = styled.div`
   font-size: 30px;
+  padding: 20px;
 `;
 const RoomOption = styled.div`
-  font-size: 15px;
+  font-size: 20px;
+  padding: 5px;
 `;
 const OptionLine = styled.div`
   height: 70px;
+  padding: 30px;
   display: flex;
   justify-content: space-between;
 `;
@@ -147,7 +149,7 @@ const OptionInfo = styled.div`
 `;
 
 const PayButton = styled(Link)`
-  font-size: 20px;
+  font-size: 25px;
   text-decoration: none;
   color: white;
   z-index: 99999;
@@ -155,7 +157,9 @@ const PayButton = styled(Link)`
 
 export default BottomSlider;
 
-function Slide({ info, index, ...args }) {
+function Slide({ room, info, index, check_in, check_out, ...args }) {
+  const qs = `?room_name=${room.name}&check_in=${check_in}&check_out=${check_out}&price=${info.price}&room_option=${info.options[0].name}&max_people=${info.max_people}`;
+  console.log(qs);
   return (
     <div {...args}>
       <h3>
@@ -167,11 +171,13 @@ function Slide({ info, index, ...args }) {
                   {info.name}
                   <RoomOption>{info.options[0].name}</RoomOption>
                 </RoomName>
-                <RoomPrice>{info.price}</RoomPrice>
+                <RoomPrice>
+                  {`₩${Math.floor(info.price).toLocaleString('ko-KR')}~`}
+                </RoomPrice>
               </TopLine>
               <OptionLine>
                 <OptionInfo>{`기준${info.min_people}명 (최대 ${info.max_people}명) 침구${info.number_of_bed}개`}</OptionInfo>
-                <PayButton to="/PaymentPage"> BOOK </PayButton>
+                <PayButton to={`/PaymentPage` + qs}> BOOK </PayButton>
               </OptionLine>
             </RoomDetailInfo>
           </RoomImg>
