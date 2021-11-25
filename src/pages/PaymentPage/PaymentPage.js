@@ -4,26 +4,27 @@ import styled from 'styled-components';
 import PaymentBox from './PaymentBox';
 
 const PaymentPage = () => {
-  const [paymentData, setPaymentData] = useState({});
   const [searchParams, withSearchParams] = useSearchParams();
+  const [paymentData, setPaymentData] = useState({});
   const [isAccomodationStyle, setAccomodationStyle] = useState();
   const [isRoomsName, setRoomsName] = useState();
   const [isRoomsMaxPeople, setRoomsMaxPeople] = useState();
   const [isNumber, setNumber] = useState();
 
-  const roomName = searchParams.get('roomsName');
-  const price = searchParams.get('roomsPrice');
+  const roomName = searchParams.get('room_name');
+  const roomOption = searchParams.get('room_option');
+  const price = searchParams.get('price');
   const startDate = searchParams.get('check_in');
   const endDate = searchParams.get('check_out');
 
-  useEffect(() => {
-    fetch('./data/paymentData.json/')
-      .then(res => res.json())
-      .then(res => {
-        setPaymentData(res.result.rooms[0]);
-        console.log(res.result.rooms[0]);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('./data/paymentData.json/')
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       setPaymentData(res.result.rooms[0]);
+  //       console.log(res.result.rooms[0]);
+  //     });
+  // }, []);
 
   const number = Math.round(price);
   const priceNumber = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -40,12 +41,7 @@ const PaymentPage = () => {
           <LentFee>{priceNumber}원</LentFee>
         </BookingDataTab>
       </PaymentSubContainer>
-      <PaymentBox
-        setAccomodationStyle={setAccomodationStyle}
-        setRoomsName={setRoomsName}
-        setRoomsMaxPeople={setRoomsMaxPeople}
-        setNumber={setNumber}
-      />
+      <PaymentBox />
     </PaymentContainer>
   );
 };
@@ -54,7 +50,7 @@ const PaymentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-contents: center;
+  justify-content: center;
   border: 1px solid black;
 `;
 

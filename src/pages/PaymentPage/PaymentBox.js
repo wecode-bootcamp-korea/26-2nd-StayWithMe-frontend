@@ -1,17 +1,16 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import AgreeCheckBox from './AgreeCheckBox';
 
-const PaymentBox = ({
-  setAccomodationStyle,
-  setRoomsName,
-  setRoomsMaxPeople,
-  setNumber,
-}) => {
-  const changeNumber = Math.round(setNumber);
-  const setPriceNumber = changeNumber
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const PaymentBox = () => {
+  const [searchParams] = useSearchParams();
+  const roomName = searchParams.get('room_name');
+  const roomOption = searchParams.get('room_option');
+  const price = searchParams.get('price');
+  const startDate = searchParams.get('check_in');
+  const endDate = searchParams.get('check_out');
+  const max_people = searchParams.get('max_people');
 
   return (
     <PaymentPackage>
@@ -22,12 +21,14 @@ const PaymentBox = ({
             <ReservationTitle>
               <ReservationName>예약 스테이</ReservationName>
               <ReservationState>
-                {setAccomodationStyle}/{setRoomsName}
+                {roomName} / {roomOption}
               </ReservationState>
             </ReservationTitle>
             <ReservationTitle>
               <ReservationName>예약일</ReservationName>
-              <ReservationState>-</ReservationState>
+              <ReservationState>
+                {startDate}-{endDate}
+              </ReservationState>
             </ReservationTitle>
             <ReservationTitle>
               <ReservationName>이름</ReservationName>
@@ -43,11 +44,13 @@ const PaymentBox = ({
             </ReservationTitle>
             <ReservationTitle>
               <div class="tit">인원</div>
-              <ReservationState>{setRoomsMaxPeople}명</ReservationState>
+              <ReservationState>{max_people}명</ReservationState>
             </ReservationTitle>
             <ReservationTitle>
               <ReservationName>예상결제금액</ReservationName>
-              <ReservationState>{setPriceNumber}원</ReservationState>
+              <ReservationState>
+                {Math.floor(price).toLocaleString('ko-KR')}원
+              </ReservationState>
             </ReservationTitle>
             <ReservationTitle>
               결제방법 선택
