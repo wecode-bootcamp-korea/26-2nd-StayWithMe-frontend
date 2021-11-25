@@ -10,9 +10,10 @@ import { AiOutlineSwapLeft } from 'react-icons/ai';
 const DetailPage = () => {
   const [room, setRoom] = useState({});
   const location = useLocation();
+  const params = new URLSearchParams(location.search.substring(1));
 
-  const { check_in, check_out } = location.state;
-  console.log(check_in, check_out);
+  const { check_in, check_out } = location.state && location.state;
+
   useEffect(() => {
     fetch('/data/data.json')
       .then(res => res.json())
