@@ -24,11 +24,12 @@ const Infobox = styled.div`
   color: white;
   position: absolute;
   bottom: 0;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   opacity: 0.8;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const CenterMenu = styled.div`
