@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { REDIRECT_URI } from './Oauth';
+import { useNavigate } from 'react-router-dom';
 
 const Redirect = () => {
+  const navigate = useNavigate();
   let accessCode = new URL(window.location.href).searchParams.get('code');
   // let accessToken;
 
@@ -41,7 +43,10 @@ const Redirect = () => {
             },
           })
             .then(res => res.json())
-            .then(result => localStorage.setItem('token', accessToken));
+            .then(result => {
+              localStorage.setItem('token', accessToken);
+              navigate('/');
+            });
       });
   }, []);
 

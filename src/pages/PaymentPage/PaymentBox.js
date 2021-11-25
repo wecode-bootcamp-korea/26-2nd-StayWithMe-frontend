@@ -2,6 +2,7 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import AgreeCheckBox from './AgreeCheckBox';
+import { API } from '../../config';
 
 const PaymentBox = () => {
   const [searchParams] = useSearchParams();
@@ -65,7 +66,9 @@ const PaymentBox = () => {
         </TermsConditionsAgree>
         <AgreeCheckBox />
         <PayButton>
-          <PaymentButton type="submit">결제하기</PaymentButton>
+          <PaymentButton type="submit" onClick={popUpAlert}>
+            결제하기
+          </PaymentButton>
         </PayButton>
       </PaymentForm>
     </PaymentPackage>
@@ -123,7 +126,7 @@ const ReservationState = styled.div`
 const PayButton = styled.div`
   display: flex;
   flex-direction: column;
-  justify-contents: center;
+  justify-content: center;
   align-items: center;
 `;
 

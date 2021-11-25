@@ -39,7 +39,7 @@ const DetailPage = () => {
   return (
     <Container>
       <Head>
-        <ReturnBtn to="./main">
+        <ReturnBtn to="/infoList">
           <AiOutlineSwapLeft className="backIcon" /> 돌아가기
         </ReturnBtn>
       </Head>
