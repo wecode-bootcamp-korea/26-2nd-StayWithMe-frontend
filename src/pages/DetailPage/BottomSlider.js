@@ -171,7 +171,7 @@ function Slide({ info, index, ...args }) {
               </TopLine>
               <OptionLine>
                 <OptionInfo>{`기준${info.min_people}명 (최대 ${info.max_people}명) 침구${info.number_of_bed}개`}</OptionInfo>
-                <PayButton to="./PaymentPage"> BOOK </PayButton>
+                <PayButton to="/PaymentPage"> BOOK </PayButton>
               </OptionLine>
             </RoomDetailInfo>
           </RoomImg>
