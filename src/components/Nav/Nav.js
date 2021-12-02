@@ -9,7 +9,7 @@ const Nav = () => {
     <Header>
       <Inner>
         <Link to="/">
-          <Logo src="./images/logo.jpg" />
+          <Logo src="https://media.vlpt.us/images/yeonbee/post/098cb537-efa0-4d8f-ad40-3d715a313a6e/logo.jpg" />
         </Link>
         <Wherebutton>
           <BiMap />

@@ -48,7 +48,7 @@ const Redirect = () => {
             });
         goToMain();
       });
-  }, [goToMain()]);
+  }, []);
 
   return <div />;
 };
