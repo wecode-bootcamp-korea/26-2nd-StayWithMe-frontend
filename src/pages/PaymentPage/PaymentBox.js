@@ -15,7 +15,7 @@ const PaymentBox = () => {
   const price = searchParams.get('price');
   const startDate = searchParams.get('check_in');
   const endDate = searchParams.get('check_out');
-  const max_people = searchParams.get('max_people');
+  const maxPeople = searchParams.get('max_people');
 
   return (
     <PaymentPackage>
@@ -49,7 +49,7 @@ const PaymentBox = () => {
             </ReservationTitle>
             <ReservationTitle>
               <div class="tit">인원</div>
-              <ReservationState>{max_people}명</ReservationState>
+              <ReservationState>{maxPeople}명</ReservationState>
             </ReservationTitle>
             <ReservationTitle>
               <ReservationName>예상결제금액</ReservationName>
