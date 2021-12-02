@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import AgreeCheckBox from './AgreeCheckBox';
 import { API } from '../../config';
 
+const popUpAlert = () => {
+  alert('결제가 완료되었습니다!');
+};
+
 const PaymentBox = () => {
   const [searchParams] = useSearchParams();
   const roomName = searchParams.get('room_name');
