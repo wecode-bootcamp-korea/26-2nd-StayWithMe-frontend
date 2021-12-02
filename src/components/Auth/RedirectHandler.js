@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 const Redirect = () => {
   const navigate = useNavigate();
   let accessCode = new URL(window.location.href).searchParams.get('code');
-  // let accessToken;
 
-  console.log(accessCode);
+  const goToMain = () => {
+    navigate('/');
+  };
 
   const bodyData = {
     grant_type: 'authorization_code',
@@ -32,11 +33,10 @@ const Redirect = () => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log('result', result);
         let accessToken = result.access_token;
 
         accessToken &&
-          fetch('http://10.58.0.64:8000/users/signin', {
+          fetch('http://13.125.209.17:8000/users/signin', {
             method: 'POST',
             headers: {
               Authorization: accessToken,
@@ -45,12 +45,12 @@ const Redirect = () => {
             .then(res => res.json())
             .then(result => {
               localStorage.setItem('token', accessToken);
-              navigate('/');
             });
+        goToMain();
       });
-  }, []);
+  }, [goToMain()]);
 
-  return <div>무조건 렌더링</div>;
+  return <div />;
 };
 
 export default Redirect;
