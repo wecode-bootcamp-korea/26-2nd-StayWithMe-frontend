@@ -81,7 +81,9 @@ const MinusButton = styled.button`
   position: absolute;
   left: -2px;
   text-indent: -9999px;
-  background: #f9fafb url(./images/btn_count.png) no-repeat 0 0;
+  background: #f9fafb
+    url('https://media.vlpt.us/images/yeonbee/post/54db5658-861f-4fce-acc3-876aefa48fa9/btn_count.png')
+    no-repeat 0 0;
   background-size: 36px 108px;
   width: 34px;
   height: 35px;
@@ -118,7 +120,9 @@ const PlusButton = styled.button`
   position: absolute;
   right: -2px;
   text-indent: -9999px;
-  background: #f9fafb url(./images/btn_count.png) no-repeat 0 -50px;
+  background: #f9fafb
+    url('https://media.vlpt.us/images/yeonbee/post/54db5658-861f-4fce-acc3-876aefa48fa9/btn_count.png')
+    no-repeat 0 -50px;
   background-size: 34px 103px;
   width: 34px;
   height: 35px;

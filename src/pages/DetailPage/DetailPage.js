@@ -26,6 +26,7 @@ const DetailPage = () => {
       .then(res => res.json())
       .then(res => {
         console.log(res);
+        console.log('하이');
         setRoom(res.result);
       });
   }, []);

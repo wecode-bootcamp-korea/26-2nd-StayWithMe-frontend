@@ -85,7 +85,7 @@ const Slider = styled.input`
     appearance: none;
     width: 30px;
     height: 30px;
-    background-image: url(./images/slider_thumb.png);
+    background-image: url('https://media.vlpt.us/images/yeonbee/post/7458e948-1295-4a32-adaa-27a8e52b4673/slider_thumb.png');
     cursor: pointer;
   }
 `;
